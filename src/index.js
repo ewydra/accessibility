@@ -3,6 +3,20 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+if (process.env.NODE_ENV !== "production") {
+  const axe = require("@axe-core/react");
+  axe(React, ReactDOM, 1000).then(({ violations }) => {
+    violations.forEach(({ nodes = [] }) => {
+      nodes.forEach(({ target }) => {
+        const node = document.querySelector(target);
+
+        node.style.border = "2px dotted red";
+        node.style["box-sizing"] = "border-box";
+      });
+    });
+  });
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
