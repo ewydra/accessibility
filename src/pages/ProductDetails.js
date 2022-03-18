@@ -1,12 +1,12 @@
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "../components/Button";
 import { useData } from "../hooks/useData";
 
 const ProductWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 24px;
 `;
 
 const ProductImageWrapper = styled.div`
@@ -19,7 +19,7 @@ const ProductImageWrapper = styled.div`
 const ProductImage = styled.img`
   height: auto;
   width: 100%;
-  border: 1px solid #e8e8e8;
+  border: 1px solid ${(props) => props.theme.colors.border};
   border-radius: 4px;
 `;
 
@@ -54,9 +54,9 @@ export function ProductDetails() {
       <ProductInfoWrapper>
         <ProductInfo>
           <h1>{product.name}</h1>
-          <h3>{product.price}</h3>
+          <h2>{product.price}</h2>
           <p>{product.description}</p>
-          <button>Dodaj do koszyka</button>
+          <Button>Dodaj do koszyka</Button>
         </ProductInfo>
       </ProductInfoWrapper>
     </ProductWrapper>
