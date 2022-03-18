@@ -1,18 +1,27 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
+import { Navbar } from "./components/Navbar";
+import GlobalStyles from "./globalStyles";
 import { ProductDetails, Home } from "./pages";
-import { theme } from "./theme";
+import { Layout } from "./components/Layout";
+import { ContrastProvider } from "./contexts/ContrastContext";
+import { ThemeProvider } from "./contexts/ThemeProvider";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path=":productId" element={<ProductDetails />} />
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <ContrastProvider>
+      <ThemeProvider>
+        <GlobalStyles />
+        <BrowserRouter>
+          <Navbar />
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path=":productId" element={<ProductDetails />} />
+            </Routes>
+          </Layout>
+        </BrowserRouter>
+      </ThemeProvider>
+    </ContrastProvider>
   );
 }
 

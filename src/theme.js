@@ -6,14 +6,7 @@ const breakpoints = {
   xl: "1920px",
 };
 
-export const theme = {
-  colors: {
-    text: "#111212",
-    background: "#fff",
-    primary: "#303f9f",
-    secondary: "#ef5350",
-    white: "#FFF",
-  },
+const themeFields = {
   spacing: {
     xs: "4px",
     sm: "8px",
@@ -29,4 +22,37 @@ export const theme = {
     desktop: `@media screen and (min-width: ${breakpoints.lg})`,
     widescreen: `@media screen and (min-width: ${breakpoints.xl})`,
   },
+};
+
+export const defaultTheme = {
+  mode: "default",
+  colors: {
+    text: "#383838",
+    background: "#fff",
+    primary: {
+      main: "#7DA68C",
+      text: "#fff",
+    },
+    navbar: "#E3F1E8",
+    border: "#e8e8e8",
+    white: "#fff",
+  },
+  ...themeFields,
+};
+
+export const highContrastTheme = {
+  mode: "highContrast",
+  colors: {
+    text: "#fff",
+    background: "#202020",
+    primary: {
+      main: "#FFFF00",
+      text: "#000",
+    },
+    secondary: "#04FEFF",
+    navbar: "#000",
+    border: "#202020",
+    white: "#fff",
+  },
+  ...themeFields,
 };
