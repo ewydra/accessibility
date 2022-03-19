@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const ProductWrapper = styled.article`
+const ProductWrapper = styled.div`
   display: flex;
   ${(props) => props.theme.mediaQueries.tablet} {
     flex-basis: 50%;
@@ -62,9 +62,9 @@ export function ProductListItem({ product }) {
 
   return (
     <ProductWrapper>
-      <ProductLink to={`/${id}`} aria-label={name}>
+      <ProductLink to={`/${id}`}>
         <ProductImageWrapper>
-          <ProductImage src={imageUrl} alt={name} />
+          <ProductImage src={imageUrl} aria-hidden="true" />
         </ProductImageWrapper>
         <ProductInfo>
           <h1>{name}</h1>

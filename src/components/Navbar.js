@@ -3,7 +3,7 @@ import { useContrastMode } from "../contexts/ContrastContext";
 import { Button } from "./Button";
 import { NavLink } from "./NavLink";
 
-const Navigation = styled.nav`
+const NavigationBar = styled.div`
   padding: 0 24px;
   background-color: ${(props) => props.theme.colors.navbar};
   display: flex;
@@ -21,22 +21,20 @@ export function Navbar() {
   const { changeContrastMode } = useContrastMode();
 
   return (
-    <Navigation>
-      <h1>Shop</h1>
-      <NavLinks>
-        <li>
-          <NavLink to="/" aria-label="Home page">
-            Home
-          </NavLink>
-        </li>
-      </NavLinks>
-      <Button
-        variant="dark"
-        aria-label="Switch contrast mode"
-        onClick={changeContrastMode}
-      >
+    <NavigationBar title="Navigation bar">
+      <div role="banner">
+        <h1>Shop</h1>
+      </div>
+      <nav>
+        <NavLinks>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+        </NavLinks>
+      </nav>
+      <Button variant="dark" onClick={changeContrastMode}>
         High-contrast mode
       </Button>
-    </Navigation>
+    </NavigationBar>
   );
 }

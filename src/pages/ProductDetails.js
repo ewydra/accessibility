@@ -49,14 +49,14 @@ export function ProductDetails() {
   return (
     <ProductWrapper>
       <ProductImageWrapper>
-        <ProductImage src={product.imageUrl} alt={product.name} />
+        <ProductImage src={product.imageUrl} aria-hidden="true" />
       </ProductImageWrapper>
       <ProductInfoWrapper>
         <ProductInfo>
           <h1>{product.name}</h1>
           <h2>{product.price}</h2>
           <p>{product.description}</p>
-          <Button>Dodaj do koszyka</Button>
+          <Button>Add to cart</Button>
         </ProductInfo>
       </ProductInfoWrapper>
     </ProductWrapper>
