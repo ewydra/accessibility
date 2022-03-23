@@ -8,7 +8,10 @@ module.exports = {
       target: "temporary-public-storage",
     },
     assert: {
-      preset: "lighthouse:no-pwa",
+      assertions: {
+        "categories:performance": "off",
+        "categories:pwa": "off",
+      },
     },
   },
 };
