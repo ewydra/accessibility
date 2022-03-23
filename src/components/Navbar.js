@@ -18,7 +18,7 @@ const NavLinks = styled.ul`
 `;
 
 export function Navbar() {
-  const { changeContrastMode } = useContrastMode();
+  const { isHighContrastMode, changeContrastMode } = useContrastMode();
 
   return (
     <NavigationBar>
@@ -30,7 +30,12 @@ export function Navbar() {
           </li>
         </NavLinks>
       </nav>
-      <Button role="switch" variant="dark" onClick={changeContrastMode}>
+      <Button
+        role="switch"
+        aria-checked={isHighContrastMode}
+        variant="dark"
+        onClick={changeContrastMode}
+      >
         High-contrast mode
       </Button>
     </NavigationBar>
